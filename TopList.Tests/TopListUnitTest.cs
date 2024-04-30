@@ -3,7 +3,7 @@ namespace TopList.Tests
     public class TopListUnitTest
     {
         [Test]
-         public void CheckLetterValueGetStatisticMethod()
+        public void CheckLetterValueGetStatisticMethod()
         {
             //arrange
             var track = new SongRating ("Abba", "Waterloo", "1974");
@@ -20,8 +20,6 @@ namespace TopList.Tests
 
         }
  
-
-
         [Test]
         public void CheckSongRatingConstructorMethod()
         {
@@ -30,18 +28,13 @@ namespace TopList.Tests
             var song = "Waterloo";
             var year = "1974";
 
-
-            //act
-        
+            //act       
             var track = new SongRating("Abba", "Waterloo", "1974");
-
 
             //assert
             Assert.AreEqual(singer,track.Artist);
             Assert.AreEqual(song, track.NameSong);
             Assert.AreEqual(year, track.Year);
-
         }
-       
     }
 }

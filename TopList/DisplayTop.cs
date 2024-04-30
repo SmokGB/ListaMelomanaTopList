@@ -3,9 +3,7 @@
     public static class DisplayTop
     {
         private static List<string> songList = new List<string>();
-
         public static void SongShow()
-
         {
             Console.Clear();
             ReadData();
@@ -26,11 +24,8 @@
             foreach (var song in songList)
             {
                 Console.WriteLine(counter + ". " + song);
-
                 counter++;
-
             }
-
         }
 
         private static void ReadData()
@@ -40,21 +35,16 @@
             {
                 using (var topReader = File.OpenText("TopList.txt"))
                 {
-
                     var line = topReader.ReadLine();
-                    
-                        while (line != null)
-                        {
-                            tempList.Add(line.Substring(20));
-                            line = topReader.ReadLine();
-                        }
-                    
+                    while (line != null)
+                    {
+                        tempList.Add(line.Substring(20));
+                        line = topReader.ReadLine();
+                    }
                 }
             }
-
             catch (Exception e)
             {
-
                 Console.WriteLine("Brak pliku \"TopList.txt\n" + e.Message);
             }
             finally
@@ -63,7 +53,6 @@
                 songList.Sort();
             }
         }
-
     }
 }
 

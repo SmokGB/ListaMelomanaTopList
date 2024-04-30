@@ -2,7 +2,6 @@
 {
     public class Statistics
     {
-
         public float Min { get; private set; }
         public float Max { get; private set; }
         public float Average
@@ -53,8 +52,5 @@
             this.Min = Math.Min(this.Min, grade);
             this.Max = Math.Max(this.Max, grade);
         }
-
-
     }
-
 }
