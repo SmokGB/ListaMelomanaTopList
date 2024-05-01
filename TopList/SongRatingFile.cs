@@ -36,7 +36,7 @@
         {
             Statistics songStatistics = new Statistics();
             var gradesFromFile = this.ReadSongGradesFromFile();
-            
+
             foreach (var grade in this.songGrades)
             {
                 songStatistics.AddGrade(grade);
