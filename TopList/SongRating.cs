@@ -5,7 +5,6 @@
         private List<float> grades = new List<float>();
         public delegate void SongRatingDelegate(object Event, EventArgs args);
         public event SongRatingDelegate TheBestSong;
-        public string Year { get; private set; }
 
         public SongRating(string artists, string song, string year) : base (artists, song, year)
         {
@@ -214,10 +213,6 @@
                     else if (char.TryParse(grade, out char charResult))
                     {
                         this.AddGrade(charResult);
-                    }
-                    else if (int.TryParse(grade, out int intResult))
-                    {
-                        this.AddGrade(intResult);
                     }
                     else
                     {
