@@ -1,7 +1,5 @@
 ﻿namespace TopList
-
 {
-
     public class SongRatingFile : SongRating
     {
         private string? fileName = null;
