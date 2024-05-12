@@ -1,6 +1,5 @@
 ﻿namespace TopList
 {
-
     public static class Menu
     {
         static string[] optionsMenu = { "Wprowadź i oceń utwor", "Wprowadź i oceń utwor [opcja z zapisem ocen do pliku]", "Wyswietl Toplistę", "Wyczyść TopListę", "Wyjście z programu" };
@@ -169,7 +168,8 @@
             ShowMenu();
         }
 
-        private static void RateTheSong(SongRating track)
+
+        private static void RateTheSong(TrackBase track)
         {
             while (true)
             {
@@ -197,11 +197,12 @@
         private static void WriteToFile()
         {
             var insertedTrack = new SongRatingFile(artist, track, publicationYear);
-            insertedTrack.TheBestSongFile += ILikeIt;
-            insertedTrack.TheBestSongFile += CreateTopList;
+            insertedTrack.TheBestSong += ILikeIt;
+            insertedTrack.TheBestSong += CreateTopList;
             RateTheSong(insertedTrack);
             ShowMenu();
         }
+
         private static void ILikeIt(object sender, EventArgs args)
         {
             Console.WriteLine("\nOj, bradzo Lubisz ten utwór !!!");

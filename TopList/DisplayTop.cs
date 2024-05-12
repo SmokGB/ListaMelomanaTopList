@@ -45,7 +45,7 @@
             }
             catch (Exception e)
             {
-                Console.WriteLine("Brak pliku \"TopList.txt\n" + e.Message);
+                Console.WriteLine("Brak pliku \"TopList.txt --> " + e.Message);
             }
             finally
             {

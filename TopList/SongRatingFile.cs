@@ -1,10 +1,11 @@
 ﻿namespace TopList
 {
-    public class SongRatingFile : SongRating
+    public class SongRatingFile : TrackBase
     {
         private string? fileName = null;
         private List<float> songGrades = new List<float>();
-        public event SongRatingDelegate TheBestSongFile;
+        public delegate void SongRatingDelegate(object Event, EventArgs args);
+        public event SongRatingDelegate TheBestSong;
         public SongRatingFile(string artists, string song, string year) : base(artists, song, year)
         {
             fileName = artists + "_" + song + "_" + year + ".txt";
@@ -20,9 +21,9 @@
 
                 if (grade > 9)
                 {
-                    if (TheBestSongFile != null)
+                    if (TheBestSong != null)
                     {
-                        TheBestSongFile(this, new EventArgs());
+                        TheBestSong(this, new EventArgs());
                     }
                 }
             }
@@ -31,7 +32,6 @@
                 throw new Exception("Zakres punktów [0-10]");
             }
         }
-
         public override Statistics GetStatistics()
         {
             Statistics songStatistics = new Statistics();
@@ -43,7 +43,6 @@
             }
             return songStatistics;
         }
-
         private List<float> ReadSongGradesFromFile()
         {
             if (File.Exists(fileName))
